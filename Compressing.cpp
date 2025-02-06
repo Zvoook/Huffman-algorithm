@@ -6,6 +6,13 @@ using std::cin;
 using std::cout;
 using std::endl;
 
+int filesize(FILE* name) {
+	fseek(name, 0L, SEEK_END);
+	long len = ftell(name);
+	fseek(name, 0, SEEK_SET);
+	return len;
+}
+
 NODE* create_node(int id, int val)
 {
 	/*NODE* node;
