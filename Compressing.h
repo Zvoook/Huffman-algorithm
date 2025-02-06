@@ -28,3 +28,4 @@ void fill_list(LIST* list, int* arr);
 NODE* Add2LIST(NODE* head, NODE* node);
 NODE* MakeNodeFromNode(NODE* left, NODE* right);
 NODE* MakeTreeFromList(NODE* head);
+void coding(NODE* node, int len, char* code, char* codes[]);
