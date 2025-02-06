@@ -122,3 +122,20 @@ NODE* MakeTreeFromList(NODE* head)
 	printf("Creating tree completed!\n");
 	return head;
 }
+void coding(NODE* node, int len, char* code, char* codes[]) {
+  if (!node) return;
+  if (node->left == NULL && node->right==NULL) {
+    code[len]='\0';
+    strcpy(codes[node->symb], code);
+    return;
+  }
+  if (node->left) {
+    code[len] = '0';
+    coding(node->left, len+1, code, codes);
+  }
+  if (node->right) {
+    code[len] = '1';
+    coding(node->right, len+1, code, codes);
+  }
+  //cout << "Element " << node->symb << " coded as the: " << node->code << endl;
+}
