@@ -18,6 +18,7 @@ typedef struct LIST {
 	int size;
 }LIST;
 
+int filesize(FILE* name);
 NODE* create_node(int id, int val);
 LIST* init_list();
 void add_node(LIST* list, int id, int val);
