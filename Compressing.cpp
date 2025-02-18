@@ -111,3 +111,36 @@ void coding(NODE* node, int len, char* code, char* codes[]) {
 		coding(node->right, len+1, code, codes);
 	}
 }
+void compressing(const char* inp, const char* out, char* codes[]) {
+  FILE* input = fopen(inp, "rb");
+  if (!input) {
+    cout << "Can't open file for reading!" << endl;
+    return;
+  }
+  FILE* output = fopen(out, "wb");
+  if (!output) {
+    cout << "Can't open file for writing!" << endl;
+    return;
+  }
+  unsigned char byte = 0;
+  int simb, byte_len = 0;
+  while ((simb = fgetc(input)) != EOF) {
+    char* code = codes[simb];
+    for (int i = 0; code[i] != '\0'; ++i) {
+      byte = (byte << 1) | (code[i] - '0');
+      byte_len++;
+      if (byte_len == BYTE) {
+        fputc(byte, output);
+        byte = 0;
+        byte_len = 0;
+      }
+    }
+  }  
+  if (byte_len > 0) {
+    byte = byte << (BYTE - byte_len);
+    fputc(byte, output);
+  }
+  fclose(input);
+  fclose(output);
+  cout << "File successfuly compressed!" << endl;
+}
