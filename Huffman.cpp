@@ -35,4 +35,11 @@ int main() {
 		if (amount[i] > 0)
 			printf("'%c' : %s\n", i, codes[i]);
 	}
+	//Compressing and decompressing
+  	compressing("Video.mov", "Compress Video.bin", codes);
+  	decompressing("Compress Video.bin", "Decomp Video.mov", lenght, root, codes);
+    	for (int i = 0; i < SIZE; i++) free(codes[i]);
+    	free(codes);
+ 	free(code);
+	}
 #endif
