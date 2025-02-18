@@ -2,10 +2,11 @@
 #include <iostream>
 #include <stdlib.h>
 #include "Compressing.h"
-#ifdef Huffman
 using std::cin;
 using std::cout;
 using std::endl;
+#define Huffman
+#ifdef Huffman
 int main() {
 	//Frequency counting
 	FILE* file = fopen("Video.mov", "rb");
@@ -21,7 +22,6 @@ int main() {
 	//Creating List
 	LIST* list = init_list();
 	fill_list(list, amount);
-	print_list(list);
 
 	//Creating Tree from List
 	NODE* root=MakeTreeFromList(list->head);
@@ -35,3 +35,4 @@ int main() {
 		if (amount[i] > 0)
 			printf("'%c' : %s\n", i, codes[i]);
 	}
+#endif
