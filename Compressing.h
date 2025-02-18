@@ -29,3 +29,4 @@ NODE* MakeNodeFromNode(NODE* left, NODE* right);
 NODE* MakeTreeFromList(NODE* head);
 void coding(NODE* node, int len, char* code, char* codes[]);
 void compressing(const char* input, const char* output, char* codes[]);
+void decompressing(const char* input, const char* output, int lenght, NODE* node, char* codes[]);
