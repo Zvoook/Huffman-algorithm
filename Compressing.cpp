@@ -69,8 +69,7 @@ void print_list(LIST* list)
 
 NODE* MakeNodeFromNode(NODE* left, NODE* right)
 {
-	NODE* node;
-	node = new NODE;
+	NODE* node = (NODE*)calloc(1, sizeof(NODE));
 	node->freq = left->freq + right->freq;
 	node->isSymb = 0;
 	node->symb = 0;
