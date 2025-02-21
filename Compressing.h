@@ -3,12 +3,12 @@
 #include <iostream>
 #include <stdlib.h>
 #define BYTE 8
-#define SIMB 256
+#define SIZE 256
 typedef struct NODE {
 	unsigned char symb;
 	int isSymb;
 	unsigned int freq;
-	unsigned char code[CODE_SIZE];
+	unsigned char code[SIZE];
 	int level;
 	struct NODE* left, * right, * next;
 }NODE;
@@ -18,7 +18,7 @@ typedef struct LIST {
 	int size;
 }LIST;
 
-int filesize(FILE* name);
+int File_Size(FILE* name);
 NODE* create_node(int id, int val);
 LIST* init_list();
 void add_node(LIST* list, int id, int val);
